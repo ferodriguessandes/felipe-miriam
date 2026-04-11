@@ -27,9 +27,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 nav a{color:var(--td);text-decoration:none;font-family:var(--display);font-size:.6rem;letter-spacing:.22em;opacity:.75;transition:opacity .2s;white-space:nowrap}
 nav a:hover{opacity:1}
 .nav-langs{display:flex;gap:.35rem;align-items:center;flex-shrink:0;margin-left:1.5rem}
-.lang-btn{background:none;border:none;cursor:pointer;opacity:.45;transition:all .2s;padding:.2rem;line-height:1;border-radius:2px}
-.lang-btn.active,.lang-btn:hover{opacity:1;outline:2px solid rgba(237,224,196,.5)}
-.flag-img{width:26px;height:auto;display:block;border-radius:2px}
+.lang-btn{background:none;border:none;cursor:pointer;font-size:1.2rem;opacity:.45;transition:opacity .2s;padding:.1rem;line-height:1}
 .lang-btn:hover,.lang-btn.active{opacity:1}
 
 /* HERO */
@@ -188,10 +186,10 @@ footer p+p{margin-top:.4rem}
     <a href="#contact">RSVP</a>
   </div>
   <div class="nav-langs">
-    <button class="lang-btn active" onclick="setLang('pt',this)" title="Português"><img src="https://flagcdn.com/w40/br.png" class="flag-img" alt="PT"></button>
-    <button class="lang-btn" onclick="setLang('fr',this)" title="Français"><img src="https://flagcdn.com/w40/fr.png" class="flag-img" alt="FR"></button>
-    <button class="lang-btn" onclick="setLang('de',this)" title="Deutsch"><img src="https://flagcdn.com/w40/de.png" class="flag-img" alt="DE"></button>
-    <button class="lang-btn" onclick="setLang('it',this)" title="Italiano"><img src="https://flagcdn.com/w40/it.png" class="flag-img" alt="IT"></button>
+    <button class="lang-btn active" onclick="setLang('pt',this)" title="Português">🇧🇷</button>
+    <button class="lang-btn" onclick="setLang('fr',this)" title="Français">🇫🇷</button>
+    <button class="lang-btn" onclick="setLang('de',this)" title="Deutsch">🇩🇪</button>
+    <button class="lang-btn" onclick="setLang('it',this)" title="Italiano">🇮🇹</button>
   </div>
 </nav>
 
@@ -349,7 +347,7 @@ footer p+p{margin-top:.4rem}
       <p>Por isso, preparamos uma lista de presentes para aqueles que desejarem participar desse momento conosco.</p>
       <div class="gifts-pix">
         <h4>TRANSFERÊNCIA BANCÁRIA</h4>
-        <p><strong style="color:var(--m)">PIX:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dfb9baf1b2b0abbeedefefee9fb8b2beb6b3f1bcb0b2">[email&#160;protected]</a><br><strong style="color:var(--m)">IBAN:</strong> FR80 3000 2089 4100 0024 8002 F90</p>
+        <p><strong style="color:var(--m)">PIX:</strong> fe.mota2001@gmail.com<br><strong style="color:var(--m)">IBAN:</strong> FR80 3000 2089 4100 0024 8002 F90</p>
       </div>
       <a class="btn-icasei" href="https://sites.icasei.com.br/miriametfelipe/pages/37216530" target="_blank" rel="noopener">VER LISTA DE PRESENTES →</a>
     </div>
@@ -367,12 +365,12 @@ footer p+p{margin-top:.4rem}
       <div class="contact-person">
         <h4>Felipe Sandes</h4>
         <div class="contact-detail"><span class="ico">📞</span>+55 (11) 939056011</div>
-        <div class="contact-detail"><span class="ico">✉</span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6f090a4102001b0e5d5f5f5e2f08020e0603410c0002">[email&#160;protected]</a></div>
+        <div class="contact-detail"><span class="ico">✉</span>fe.mota2001@gmail.com</div>
       </div>
       <div class="contact-person">
         <h4>Miriam Sandes</h4>
         <div class="contact-detail"><span class="ico">📞</span>+55 (11) 913219077</div>
-        <div class="contact-detail"><span class="ico">✉</span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7e13170c171f13481f1a1f0d0d1f4b3e19131f1712501d1113">[email&#160;protected]</a></div>
+        <div class="contact-detail"><span class="ico">✉</span>miriam6adassa5@gmail.com</div>
       </div>
       <div class="rsvp-box">
         <p>Para confirmar sua presença ou tirar dúvidas sobre o evento, entre em contato com a nossa assessora:</p>
@@ -390,7 +388,7 @@ footer p+p{margin-top:.4rem}
   <p>"Porque este Deus é o nosso Deus para sempre" — Salmos 48:14</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function tick(){
   var diff=new Date('2026-07-18T13:30:00-03:00')-new Date();
   if(diff<=0)return;
@@ -401,4 +399,15 @@ function tick(){
 }
 tick();setInterval(tick,1000);
 
-var io=new IntersectionObserver(function(e){e.forEach(function
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}});},{threshold:.08});
+document.querySelectorAll('.fade-in').forEach(function(el){io.observe(el);});
+
+function setLang(lang,btn){
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  var sel=document.querySelector('.goog-te-combo');
+  if(sel){sel.value=lang;sel.dispatchEvent(new Event('change'));}
+}
+</script>
+</body>
+</html>
